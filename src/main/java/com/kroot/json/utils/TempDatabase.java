@@ -15,25 +15,41 @@ import com.kroot.json.service.Deck;
 public class TempDatabase {
 	
 	Deck deck;
+	
+	//TESTING
+	Deck deckZero;
+	Deck deckOne;
+	Deck deckTwo;
+	Deck deckThree;
+	//TESTING
 
 	int idIndex = 0;
-	List<Deck> deckList;
+	List<Deck> deckList;  //Make this private with getters and setters
 	
 	private Card[] cards; // array holding all 52 cards
 	private int cardsInDeck; // the current number of cards in the deck
 
 	public static final int DECK_SIZE = 52; 
 	
-	//create an initial Deck for testing
-	public TempDatabase(){
-		cards = new Card[DECK_SIZE];
-		cardsInDeck = DECK_SIZE;
-		for (int i = 0; i < 13; i++) {
-			cards[i] = new Card(i + 1, Card.HEARTS);
-			cards[i + 13] = new Card(i + 1, Card.DIAMONDS);
-			cards[i + 26] = new Card(i + 1, Card.CLUBS);
-			cards[i + 39] = new Card(i + 1, Card.SPADES);
-		}
+	//create four initial Decks for testing  TEMPORARY
+	public TempDatabase(){ }
+	
+	public List<Deck> initDatabase(){
+		
+		deckList = new ArrayList<>();
+		
+		deckZero = new Deck();
+		deckOne = new Deck();
+		deckTwo = new Deck();
+		deckThree = new Deck();
+		
+		deckList.add(deckZero);
+		deckList.add(deckOne);
+		deckList.add(deckTwo);
+		deckList.add(deckThree);
+		
+		return deckList;
+		
 	}
 	
 	/**
@@ -55,6 +71,11 @@ public class TempDatabase {
 	//TEST!!!!!!
 	public Deck getTestDeck() {
 		return new Deck();
+	}
+	
+	//TEST - get all the decks
+	public List<Deck> getAllDecks(){
+		return deckList;
 	}
 			
 }

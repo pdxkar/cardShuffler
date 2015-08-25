@@ -2,8 +2,6 @@ package com.kroot.json.action;
 
 import java.util.List;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.NotFoundException;
 import javax.ws.rs.POST;
@@ -13,45 +11,53 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import org.springframework.stereotype.Component;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+import com.google.gson.Gson;
 import com.kroot.json.service.Deck;
 import com.kroot.json.service.DeckService;
 import com.kroot.json.service.DeckServiceImpl;
 
-@Component
+//@Component
 @Path("/decks")
 public class DeckResource {
 	
-/*	@Autowired
-	private DeckService deckService;*/
-	
-	private DeckService deckService = new DeckServiceImpl();
+	@Autowired
+	private DeckService deckService;
 	
 	//TESTING json deserializer
-	@GET
-	@Produces({MediaType.APPLICATION_JSON})
-	public Deck testGet() {
-		return deckService.getTestDeck();
+//	@GET
+//	@Produces({MediaType.APPLICATION_JSON})
+//	public Deck testGet() {
+//		return deckService.getTestDeck();
+//	}
+	
+	//TESTING initialize tempDatabase
+	@POST
+	public String initDatabase() {
+
+		List<Deck> deckList = deckService.initDatabase(); //move this into return statement
+		Gson gson = new Gson();
+		
+		return gson.toJson(deckList);
 	}
 	
-	
-/*	//GET a list of all decks
+	//GET a list of all decks
 	@GET
 	@Produces({MediaType.APPLICATION_JSON})
-	public List<Deck> getAll() {
- 
-		return deckService.getAll();
-	}*/
+	public String getAll() {
+		List<Deck> deckList = deckService.getAll();  //move this into return statement
+		Gson gson = new Gson();
+		return gson.toJson(deckList);
+	}
 	
 	//GET an existing deck
 	@GET
 	@Path("/{param}")
 	@Produces({MediaType.APPLICATION_JSON})
 	public Deck get(@PathParam("param") int id) {
- 
-		//Student student = studentService.getById(id);
+
 		Deck deck = deckService.getDeckById(id);
 		
 		if(deck == null){

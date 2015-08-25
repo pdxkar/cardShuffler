@@ -8,18 +8,19 @@
   http://www.springframework.org/schema/context
   http://www.springframework.org/schema/context/spring-context.xsd"
         >
-<context:annotation-config />
-<context:component-scan base-package="com.kroot.json.action"/>
+<!-- <context:annotation-config />
+<context:component-scan base-package="com.kroot.json.action"/> -->
  	<context:component-scan base-package="com.kroot.json.service"/>
 	<context:component-scan base-package="com.kroot.json.utils"/>
 	
-	<bean class ="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
 
-        <bean id="objectMapper" class="org.codehaus.jackson.map.ObjectMapper"></bean>
 	
-	<bean id="StudentService" class="com.kroot.json.service.StudentService">
-  <property name="service" value="im property message" />
- </bean>
+<!-- 	<bean class ="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+
+        <bean id="objectMapper" class="org.codehaus.jackson.map.ObjectMapper"></bean> -->
+	
+<!-- 	<bean id="StudentService" class="com.kroot.json.service.StudentService">
+  <property name="service" value="im property message" /> 
+ </bean>-->
 
 </beans>
-

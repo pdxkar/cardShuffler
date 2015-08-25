@@ -1,7 +1,18 @@
-<?xml version="1.0"?>
-<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
-                         "http://java.sun.com/dtd/web-app_2_3.dtd">
-<web-app>
+<web-app version="3.0"
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+ <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>/WEB-INF/applicationContext.xml</param-value>
+</context-param>
+
+<listener>
+   <listener-class>
+        org.springframework.web.context.ContextLoaderListener
+   </listener-class>
+</listener>  
+
 	<display-name>Jersey JSON example</display-name>
 	<servlet>
 		<servlet-name>jersey-serlvet</servlet-name>

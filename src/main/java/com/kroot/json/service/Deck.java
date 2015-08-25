@@ -27,7 +27,6 @@ public class Deck {
 	 * Constructs a new Deck object containing 52 cards.
 	 */
 	public Deck() {
-		//Deck deck = new Deck();  //this causes a total mess at RT
 		cards = new Card[DECK_SIZE];
 		cardsInDeck = DECK_SIZE;
 		deckId = getDeckId();

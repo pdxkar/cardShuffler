@@ -24,6 +24,11 @@ public class CardDeserializer extends JsonDeserializer<Card> {
 		int face = node.get("face").asInt();
 		int suit = node.get("suit").asInt();
 		
+/*		String face = node.get("face").toString();
+		String suit = node.get("suit").toString();*/
+		
+		
+		
         return new Card(face, suit);
 	}
 }

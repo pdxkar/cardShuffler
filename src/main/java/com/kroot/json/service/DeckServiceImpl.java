@@ -4,30 +4,34 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.kroot.json.utils.TempDatabase;
 
-@Service
+@Service("DeckService")
 public class DeckServiceImpl implements DeckService{
 	
-/*	@Autowired
-	TempDatabase tempDatabase;*/
-	
-	TempDatabase tempDatabase = new TempDatabase();
+	@Autowired
+	TempDatabase tempDatabase;
 	
 	public DeckServiceImpl() {}
 	
+//	@Override
+//	public Deck getTestDeck(){
+//		return tempDatabase.getTestDeck();
+//	}
+	
+	//TESTING --- initialize TemporaryDatabase
 	@Override
-	public Deck getTestDeck(){
-		return tempDatabase.getTestDeck();
+	public List<Deck> initDatabase(){
+		tempDatabase = new TempDatabase();
+		setTempDatabase(tempDatabase);
+		return tempDatabase.initDatabase();
 	}
 	
 	//GET a list of all decks
 	@Override
 	public List<Deck> getAll(){
-		//return tempDatabase.getDeck();
-		return null;
+		return tempDatabase.getAllDecks();
 		
 	}
 	
@@ -57,6 +61,14 @@ public class DeckServiceImpl implements DeckService{
 	@Override
 	public void deleteDeckById(int id){
 		
+	}
+
+	public TempDatabase getTempDatabase() {
+		return tempDatabase;
+	}
+
+	public void setTempDatabase(TempDatabase tempDatabase) {
+		this.tempDatabase = tempDatabase;
 	}
 
 }
