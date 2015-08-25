@@ -41,22 +41,3 @@ public class DeckDeserializer extends JsonDeserializer<Deck> {
 }
 
 
-
-/*public class StudentDeserializer extends JsonDeserializer<Student> {
-
-	@Override
-	public Student deserialize(JsonParser jp, DeserializationContext ctxt)
-			throws IOException, JsonProcessingException {
-		JsonNode node = jp.getCodec().readTree(jp);
-		int id = 0;
-		JsonNode idNode = node.get("id");
-		if(idNode != null){
-			id = idNode.asInt();
-		}
-		String firstName = node.get("firstName").asText();
-		String lastName = node.get("lastName").asText();
-		
-        return new Student(id, firstName, lastName);
-	}
-}
-*/

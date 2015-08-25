@@ -6,19 +6,6 @@ import com.kroot.json.entity.Card;
 import com.kroot.json.utils.DeckDeserializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-/**
- * Represents a deck of cards. A deck starts with 52 cards. A deck may be
- * shuffled (i.e. randomly mix up the order of the cards in the deck). The cards
- * in a deck may be dealt one by one from the deck.
- *
- * Revised to include throwing an EmptyDeckException when there is an 
- * attempt to deal from an empty deck.
- *
- * Bugs: none known
- * 
- * @author Beck Hasti (hasti@cs.wisc.edu), copyright 2006, all rights
- *         reserved
- */
 @JsonDeserialize(using = DeckDeserializer.class)
 public class Deck {
 
@@ -107,13 +94,6 @@ public class Deck {
 
 		cardsInDeck--;
 		return cards[cardsInDeck];
-		// NOTE: the dealt card is still being referenced in the cards 
-		// array.  In general, when an item is removed from an array, 
-		// its place in the array should be set to null. However, in 
-		// this specific case we are choosing not to remove the card 
-		// so that if we want to start over with a full deck of cards, 
-		// we can just reset the cardsInDeck data member and not have 
-		// to create each of the Card objects again.
 	}
 
 	/**

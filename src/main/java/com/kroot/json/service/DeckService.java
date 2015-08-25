@@ -24,17 +24,3 @@ public interface DeckService {
 }
 
 
-/*public interface StudentService {
-	
-	public Student getById(int id);
-
-	public List<Student> getAll();
-	
-	public Student save(Student s);
-	
-	public Student update(Student s);
-	
-	public boolean delete(int id);
-}
-
-*/
