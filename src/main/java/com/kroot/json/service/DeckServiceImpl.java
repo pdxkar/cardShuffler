@@ -52,14 +52,20 @@ public class DeckServiceImpl implements DeckService{
 	
 	//POST - shuffle an existing deck
 	@Override
-	public void shuffleDeckById(int id){
-		
+	public Deck shuffleDeckById(int id){
+		return tempDatabase.shuffleDeckById(id);
 	}
 	
 	//DELETE - delete an existing deck
 	@Override
-	public void deleteDeckById(int id){
-		
+	public Boolean deleteDeckById(int id){
+		if(tempDatabase.deleteDeckById(id)){
+			return true;
+			//return "Delete has been perform successfully";
+		} else {
+			return false;
+			//return "Delete fail";
+		}
 	}
 
 	public TempDatabase getTempDatabase() {

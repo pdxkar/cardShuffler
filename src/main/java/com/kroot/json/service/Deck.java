@@ -10,15 +10,16 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 public class Deck {
 
 //	int idIndex = 0;
-	private static int deckId = 0;
+	private static int deckId = 0; //create getter and setter pair
 
-	private Card[] cards; // array holding all 52 cards
-	private int cardsInDeck; // the current number of cards in the deck
+	private Card[] cards; // array holding all 52 cards  (the deck of cards)
+	private int cardsInDeck; // the current number of cards in the deck //needed for shuffling algorithm
 
 	public static final int DECK_SIZE = 52; 
 	// size of standard deck of cards
 	
 	public Deck(int deckId, Card[] cards) {
+		System.out.println("All Args Constructor!!!!");
 		Deck.deckId = deckId;
 		this.cards = cards;
 	}
@@ -27,6 +28,7 @@ public class Deck {
 	 * Constructs a new Deck object containing 52 cards.
 	 */
 	public Deck() {
+		System.out.println("No Args Constructor!!!!");
 		deckId++;
 		cards = new Card[DECK_SIZE];
 		cardsInDeck = DECK_SIZE;
@@ -88,20 +90,17 @@ public class Deck {
 	 * 
 	 * @return the next Card object in the deck
 	 * @throws EmptyDeckException
-	 */
+	 *//*
 	public Card deal() {
 
-/*		if (cardsInDeck == 0) // check for an empty deck
-			throw new EmptyDeckException();*/
+		if (cardsInDeck == 0) // check for an empty deck
+			throw new EmptyDeckException();
 
 		cardsInDeck--;
 		return cards[cardsInDeck];
-	}
+	}*/
 
-	/**
-	 * Shuffles the deck (i.e. randomly reorders the cards in the deck). 
-	 */
-	public void shuffle() {
+/*	public void shuffle() {
 		int newI;
 		Card temp;
 		Random randIndex = new Random();
@@ -116,15 +115,15 @@ public class Deck {
 			cards[i] = cards[newI];
 			cards[newI] = temp;
 		}
-	}
+	}*/
 
-	/**
+/*	*//**
 	 * Resets the deck so that it has all its cards. Note that the order of 
 	 * the cards may be random.
-	 */
+	 *//*
 	public void reset() {
 		cardsInDeck = DECK_SIZE;
-	}
+	}*/
 
 	/**
 	 * Returns a String representation of the Deck object. The cards 
@@ -155,4 +154,12 @@ public class Deck {
 		this.cards = cards;
 	}
 
-} // end class Deck
+	public static int getDeckId() {
+		return deckId;
+	}
+
+	public static void setDeckId(int deckId) {
+		Deck.deckId = deckId;
+	}
+
+} 

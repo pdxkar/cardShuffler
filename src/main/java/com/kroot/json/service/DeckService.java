@@ -20,10 +20,10 @@ public interface DeckService {
 	public Deck createNewDeck();
 	
 	//POST - shuffle an existing deck
-	public void shuffleDeckById(int id);
+	public Deck shuffleDeckById(int id);
 	
 	//DELETE - delete an existing deck
-	public void deleteDeckById(int id);
+	public Boolean deleteDeckById(int id);
 }
 
 

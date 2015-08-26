@@ -2,6 +2,7 @@ package com.kroot.json.action;
 
 import java.util.List;
 
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.NotFoundException;
 import javax.ws.rs.POST;
@@ -56,9 +57,7 @@ public class DeckResource {
 	@GET
 	@Path("/{param}")
 	@Produces({MediaType.APPLICATION_JSON})
-//	public Deck get(@PathParam("param") int id) {
 	public String get(@PathParam("param") int id) {
-		System.out.println("boo");
 		Deck deck = deckService.getDeckById(id);
 		
 		if(deck == null){
@@ -69,23 +68,55 @@ public class DeckResource {
 		Gson gson = new Gson();
 		
 		return gson.toJson(deck);
-		
-		//return deck;
 	}
 	
-	//PUT - create a new deck in sorted order
+	//PUT - create a new deck in sorted order  ////!!!!!!!Why does this work without GSON?????
 	@PUT
 	@Produces({MediaType.APPLICATION_JSON})
 	public Deck createNewDeck(){
-		Deck deck = deckService.createNewDeck();
+		Deck deck = deckService.createNewDeck(); //move to return statement
 		return deck;
 	}
 	
 	
 	//POST - shuffle an existing deck
+	@POST
+	@Path("/{param}")
+	@Produces({MediaType.APPLICATION_JSON})
+	//public String shuffleDeckById(@PathParam("param")int id){
+	public Deck shuffleDeckById(@PathParam("param")int id){
+		Deck deck = deckService.shuffleDeckById(id);
+		
+		if(deck == null){
+			System.out.println("Deck with id:" + id + " is not found");
+			throw new NotFoundException("Deck with id:" + id + " is not found");
+		}
+		
+		return deck;
+ 
+/*		Gson gson = new Gson();
+		
+		return gson.toJson(deck);*/
+	}
 	
 	
-	//DELETE - delete an existing deck
+	@DELETE
+	@Produces({MediaType.APPLICATION_JSON})
+	@Path("/{param}")
+//	public String deleteDeckById(@PathParam("param")int id){
+	public String deleteDeckById(@PathParam("param")int id){
+		
+		Gson gson = new Gson();
+		
+		if(deckService.deleteDeckById(id)){
+			return gson.toJson("Deck #" + id + " has been deleted.");
+			//return "Delete has been perform successfully";
+		} else {
+			return gson.toJson("Delete of deck #" + id + " failed");
+			//return "Delete fail";
+		}
+
+	}
 
 }
 
