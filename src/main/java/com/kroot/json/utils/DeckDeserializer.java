@@ -2,14 +2,13 @@ package com.kroot.json.utils;
 
 import java.io.IOException;
 
-import com.kroot.json.entity.Card;
-import com.kroot.json.service.Deck;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
-
+import com.kroot.json.entity.Card;
+import com.kroot.json.service.Deck;
 
 public class DeckDeserializer extends JsonDeserializer<Deck> {
 	@Override
@@ -17,7 +16,7 @@ public class DeckDeserializer extends JsonDeserializer<Deck> {
 			throws IOException, JsonProcessingException {
 		JsonNode node = jp.getCodec().readTree(jp);
 		int id = 0;
-		JsonNode idNode = node.get("id");  //change to deckid?
+		JsonNode idNode = node.get("id");  
 		
 		if(idNode != null){
 			id = idNode.asInt();

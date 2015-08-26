@@ -20,6 +20,7 @@ public class DeckServiceImpl implements DeckService{
 //		return tempDatabase.getTestDeck();
 //	}
 	
+	//TODO Make this exercise work without this initialization
 	//TESTING --- initialize TemporaryDatabase
 	@Override
 	public List<Deck> initDatabase(){
@@ -31,23 +32,20 @@ public class DeckServiceImpl implements DeckService{
 	//GET a list of all decks
 	@Override
 	public List<Deck> getAll(){
-		return tempDatabase.getAllDecks();
-		
+		return tempDatabase.getAllDecks();		
 	}
 	
 	//GET an existing deck
 	@Override
 	public Deck getDeckById(int id){
-		return tempDatabase.getDeckById(id);
-		
+		return tempDatabase.getDeckById(id);	
 	}
 	
 	//PUT - create a new deck in sorted order
 	@Override
 	public Deck createNewDeck(){
 		Deck deck = new Deck();
-		return deck;
-		
+		return deck;		
 	}
 	
 	//POST - shuffle an existing deck
@@ -61,10 +59,8 @@ public class DeckServiceImpl implements DeckService{
 	public Boolean deleteDeckById(int id){
 		if(tempDatabase.deleteDeckById(id)){
 			return true;
-			//return "Delete has been perform successfully";
 		} else {
 			return false;
-			//return "Delete fail";
 		}
 	}
 

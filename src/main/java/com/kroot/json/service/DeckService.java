@@ -4,9 +4,7 @@ import java.util.List;
 
 public interface DeckService {
 	
-	//GET a test deck to test Json deserializer
-	//public Deck getTestDeck();
-	
+	//TODO Make this exercise work without this initialization
 	//init tempDatabase
 	public List<Deck> initDatabase();
 	

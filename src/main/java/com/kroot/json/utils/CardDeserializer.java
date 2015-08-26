@@ -24,11 +24,10 @@ public class CardDeserializer extends JsonDeserializer<Card> {
 		int face = node.get("face").asInt();
 		int suit = node.get("suit").asInt();
 		
+		//TODO Make the face and the suit deserialize to their english equivalents!
 /*		String face = node.get("face").toString();
 		String suit = node.get("suit").toString();*/
-		
-		
-		
+
         return new Card(face, suit);
 	}
 }

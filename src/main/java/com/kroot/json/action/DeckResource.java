@@ -20,25 +20,18 @@ import com.kroot.json.service.Deck;
 import com.kroot.json.service.DeckService;
 import com.kroot.json.service.DeckServiceImpl;
 
-//@Component
 @Path("/decks")
 public class DeckResource {
 	
 	@Autowired
 	private DeckService deckService;
 	
-	//TESTING json deserializer
-//	@GET
-//	@Produces({MediaType.APPLICATION_JSON})
-//	public Deck testGet() {
-//		return deckService.getTestDeck();
-//	}
-	
+	//TODO Make this exercise work without this initialization
 	//TESTING initialize tempDatabase
 	@POST
 	public String initDatabase() {
 
-		List<Deck> deckList = deckService.initDatabase(); //move this into return statement
+		List<Deck> deckList = deckService.initDatabase(); 
 		Gson gson = new Gson();
 		
 		return gson.toJson(deckList);
@@ -48,7 +41,7 @@ public class DeckResource {
 	@GET
 	@Produces({MediaType.APPLICATION_JSON})
 	public String getAll() {
-		List<Deck> deckList = deckService.getAll();  //move this into return statement
+		List<Deck> deckList = deckService.getAll();  
 		Gson gson = new Gson();
 		return gson.toJson(deckList);
 	}
@@ -70,7 +63,7 @@ public class DeckResource {
 		return gson.toJson(deck);
 	}
 	
-	//PUT - create a new deck in sorted order  ////!!!!!!!Why does this work without GSON?????
+	//PUT - create a new deck in sorted order 
 	@PUT
 	@Produces({MediaType.APPLICATION_JSON})
 	public Deck createNewDeck(){
@@ -78,12 +71,10 @@ public class DeckResource {
 		return deck;
 	}
 	
-	
 	//POST - shuffle an existing deck
 	@POST
 	@Path("/{param}")
 	@Produces({MediaType.APPLICATION_JSON})
-	//public String shuffleDeckById(@PathParam("param")int id){
 	public Deck shuffleDeckById(@PathParam("param")int id){
 		Deck deck = deckService.shuffleDeckById(id);
 		
@@ -93,27 +84,19 @@ public class DeckResource {
 		}
 		
 		return deck;
- 
-/*		Gson gson = new Gson();
-		
-		return gson.toJson(deck);*/
 	}
-	
 	
 	@DELETE
 	@Produces({MediaType.APPLICATION_JSON})
 	@Path("/{param}")
-//	public String deleteDeckById(@PathParam("param")int id){
 	public String deleteDeckById(@PathParam("param")int id){
 		
 		Gson gson = new Gson();
 		
 		if(deckService.deleteDeckById(id)){
 			return gson.toJson("Deck #" + id + " has been deleted.");
-			//return "Delete has been perform successfully";
 		} else {
 			return gson.toJson("Delete of deck #" + id + " failed");
-			//return "Delete fail";
 		}
 
 	}

@@ -4,17 +4,16 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.kroot.json.utils.CardDeserializer;
 
 @JsonDeserialize(using = CardDeserializer.class)
+//Temporarily using Beck Hasti's (U of WI) Card class for testing purposes
 public class Card {
 
-	private int face; // the card's face value, between 1 and 13 inclusive
-	private int suit; // the card's suit; one of the class constants
+	private int face; 
+	private int suit; 
 
-	// class constants for the suits
 	public static final int HEARTS = 1;
 	public static final int DIAMONDS = 2;
 	public static final int CLUBS = 3;
 	public static final int SPADES = 4;
-
 
 	public Card(int face, int suit) {
 		this.face = face;
@@ -31,15 +30,7 @@ public class Card {
 		}
 	}
 
-	public int getFace() {
-		return face;
-	}
-
-	public int getSuit() {
-		return suit;
-	}
-
-
+	//TODO Make this equivalent work with the deserializer!
 	public String toString() {
 		String s = "";
 		switch (face) {
@@ -69,6 +60,14 @@ public class Card {
 		}
 
 		return s;
+	}
+	
+	public int getFace() {
+		return face;
+	}
+
+	public int getSuit() {
+		return suit;
 	}
 
 } 
