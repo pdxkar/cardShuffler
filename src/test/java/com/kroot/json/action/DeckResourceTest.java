@@ -1,7 +1,8 @@
-package com.kroot.json.action;
+package test.java.com.kroot.json.action;
 
 import org.junit.Test;
 
+import com.kroot.json.action.DeckResource;
 import com.kroot.json.service.Deck;
 
 /**
@@ -39,7 +40,8 @@ public class DeckResourceTest {
 
 		int testId = 2;
 
-		String result = tester.get(testId);
+		//TODO Mock the result from the TempDatabase
+		//String result = tester.get(testId);
 
 		// TODO Test that the correct deck is returned when the method is
 		// called.
@@ -47,7 +49,6 @@ public class DeckResourceTest {
 		// This test will be meaningful once appropriate error handling is in
 		// place
 		// in the DeckResource and DeckService layers.
-		// The DeckService layer will be mocked.
 	}
 
 	/**
@@ -59,7 +60,8 @@ public class DeckResourceTest {
 	@Test
 	public void testCreateNewDeckHappyPath() {
 
-		Deck result = tester.createNewDeck();
+		//TODO Mock the result from the TempDatabase
+		//Deck result = tester.createNewDeck();
 
 		// TODO Test that a deck is returned when the method is called.
 		// TODO Create sad path tests.
@@ -81,7 +83,8 @@ public class DeckResourceTest {
 
 		int testId = 2;
 
-		Deck result = tester.shuffleDeckById(testId);
+		//TODO Mock the result from the TempDatabase
+		//Deck result = tester.shuffleDeckById(testId);
 
 		// TODO Test that a differently ordered deck is returned when the method
 		// is called.
@@ -103,7 +106,8 @@ public class DeckResourceTest {
 
 		int testId = 2;
 
-		String result = tester.deleteDeckById(testId);
+		//TODO Mock the result from the TempDatabase
+		//String result = tester.deleteDeckById(testId);
 
 		// TODO Test that after an existing deck is deleted by id that it is
 		// removed from the "database".

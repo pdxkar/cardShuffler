@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="test.java.com.kroot.json.service.DeckServiceTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2015-08-26T19:29:19" hostname="LT40313" time="0.018">
+  <properties/>
+  <testcase name="testGetDeckByIdHappyPath" classname="test.java.com.kroot.json.service.DeckServiceTest" time="0.002"/>
+  <testcase name="testCreateNewDeckHappyPath" classname="test.java.com.kroot.json.service.DeckServiceTest" time="0.008"/>
+  <testcase name="testGetAllDecksHappyPath" classname="test.java.com.kroot.json.service.DeckServiceTest" time="0.0"/>
+  <testcase name="testShuffleDeckHappyPath" classname="test.java.com.kroot.json.service.DeckServiceTest" time="0.002"/>
+  <testcase name="testDeleteDeckByIDHappyPath" classname="test.java.com.kroot.json.service.DeckServiceTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

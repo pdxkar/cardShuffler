@@ -1,6 +1,10 @@
-package com.kroot.json.service;
+package test.java.com.kroot.json.service;
 
 import org.junit.Test;
+
+import com.kroot.json.service.Deck;
+import com.kroot.json.service.DeckService;
+import com.kroot.json.service.DeckServiceImpl;
 
 /**
  * JUnit tests for DeckService class.
@@ -38,7 +42,7 @@ public class DeckServiceTest {
 
 		int testId = 2;
 
-		Deck result = tester.getDeckById(testId);
+		//Deck result = tester.getDeckById(testId);
 
 		// TODO Test that the correct deck is returned when the method is
 		// called.
@@ -100,7 +104,8 @@ public class DeckServiceTest {
 
 		int testId = 2;
 
-		Boolean result = tester.deleteDeckById(testId);
+		//TODO Mock the result from the TempDatabase
+		//Boolean result = tester.deleteDeckById(testId);
 
 		// TODO Test that after an existing deck is deleted by id that it is
 		// removed from the "database".
