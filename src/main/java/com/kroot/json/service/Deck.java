@@ -10,7 +10,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 public class Deck {
 
 //	int idIndex = 0;
-	private int deckId = 0;
+	private static int deckId = 0;
 
 	private Card[] cards; // array holding all 52 cards
 	private int cardsInDeck; // the current number of cards in the deck
@@ -19,7 +19,7 @@ public class Deck {
 	// size of standard deck of cards
 	
 	public Deck(int deckId, Card[] cards) {
-		this.deckId = deckId;
+		Deck.deckId = deckId;
 		this.cards = cards;
 	}
 
@@ -27,9 +27,11 @@ public class Deck {
 	 * Constructs a new Deck object containing 52 cards.
 	 */
 	public Deck() {
+		deckId++;
 		cards = new Card[DECK_SIZE];
 		cardsInDeck = DECK_SIZE;
-		deckId = getDeckId();
+		//deckId = getDeckId();
+		//setDeckId(getDeckId());
 		for (int i = 0; i < 13; i++) {
 			cards[i] = new Card(i + 1, Card.HEARTS);
 			cards[i + 13] = new Card(i + 1, Card.DIAMONDS);
@@ -38,11 +40,12 @@ public class Deck {
 		}
 	}
 	
-	public Deck createNewDeck(){
-		Deck deck = new Deck();  //this causes a total mess at RT
+/*	public Deck createNewDeck(){
+		//Deck deck = new Deck();  //this causes a total mess at RT
+		deckId++;
 		cards = new Card[DECK_SIZE];
 		cardsInDeck = DECK_SIZE;
-		deck.setDeckId(getDeckId());
+		//deck.setDeckId(getDeckId());
 		for (int i = 0; i < 13; i++) {
 			cards[i] = new Card(i + 1, Card.HEARTS);
 			cards[i + 13] = new Card(i + 1, Card.DIAMONDS);
@@ -50,23 +53,23 @@ public class Deck {
 			cards[i + 39] = new Card(i + 1, Card.SPADES);
 		}
 		return deck;
-	}
+	}*/
 	
-	/**
+/*	*//**
 	 * @returns a new deck id
-	 */
+	 *//*
 	public int getDeckId() {
 		
 		return deckId++;
 	}
 
-	/**
+	*//**
 	 * @param idIndex the idIndex to set
-	 */
+	 *//*
 	public void setDeckId(int deckId) {
 		this.deckId = deckId;
 	}
-
+*/
 	
 	
 	///////////////////?????///////////////////

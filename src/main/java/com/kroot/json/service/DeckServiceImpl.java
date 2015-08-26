@@ -38,7 +38,7 @@ public class DeckServiceImpl implements DeckService{
 	//GET an existing deck
 	@Override
 	public Deck getDeckById(int id){
-		return null;
+		return tempDatabase.getDeckById(id);
 		
 	}
 	
@@ -46,7 +46,6 @@ public class DeckServiceImpl implements DeckService{
 	@Override
 	public Deck createNewDeck(){
 		Deck deck = new Deck();
-		
 		return deck;
 		
 	}

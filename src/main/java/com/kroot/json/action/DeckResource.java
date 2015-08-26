@@ -56,15 +56,21 @@ public class DeckResource {
 	@GET
 	@Path("/{param}")
 	@Produces({MediaType.APPLICATION_JSON})
-	public Deck get(@PathParam("param") int id) {
-
+//	public Deck get(@PathParam("param") int id) {
+	public String get(@PathParam("param") int id) {
+		System.out.println("boo");
 		Deck deck = deckService.getDeckById(id);
 		
 		if(deck == null){
+			System.out.println("Deck with id:" + id + " is not found");
 			throw new NotFoundException("Deck with id:" + id + " is not found");
 		}
  
-		return deck;
+		Gson gson = new Gson();
+		
+		return gson.toJson(deck);
+		
+		//return deck;
 	}
 	
 	//PUT - create a new deck in sorted order

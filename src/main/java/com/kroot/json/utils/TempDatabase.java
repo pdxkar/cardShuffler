@@ -23,10 +23,10 @@ public class TempDatabase {
 	Deck deckThree;
 	//TESTING
 
-	int idIndex = 0;
-	List<Deck> deckList;  //Make this private with getters and setters
+	//int idIndex = 0;
+	static List<Deck> deckList;  //Make this private with getters and setters
 	
-	private Card[] cards; // array holding all 52 cards
+	//private Card[] cards; // array holding all 52 cards
 	private int cardsInDeck; // the current number of cards in the deck
 
 	public static final int DECK_SIZE = 52; 
@@ -76,6 +76,10 @@ public class TempDatabase {
 	//TEST - get all the decks
 	public List<Deck> getAllDecks(){
 		return deckList;
+	}
+	
+	public Deck getDeckById(int id){
+		return deckList.get(id);
 	}
 			
 }

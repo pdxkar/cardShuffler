@@ -22,20 +22,7 @@ public class DeckDeserializer extends JsonDeserializer<Deck> {
 		if(idNode != null){
 			id = idNode.asInt();
 		}
-/*		String firstName = node.get("firstName").asText();
-		String lastName = node.get("lastName").asText();*/
-		
-	//	Card[] cards = node.
-/*		public Deck(int deckId, Card[] cards) {
-			this.deckId = deckId;
-			this.cards = cards;
-		}*/
-		
-	//	Deck.get
 
-
-		
-       // return new Student(id, firstName, lastName);
 		return new Deck(id, new Card[52]);
 	}
 }
