@@ -13,12 +13,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import com.google.gson.Gson;
 import com.kroot.json.service.Deck;
 import com.kroot.json.service.DeckService;
-import com.kroot.json.service.DeckServiceImpl;
 
 @Path("/decks")
 public class DeckResource {

@@ -33,6 +33,8 @@ public class TempDatabase {
 	public TempDatabase() {
 	}
 
+	//TODO remove this test method once application
+	//is otherwise fully functional
 	public List<Deck> initDatabase() {
 
 		deckList = new ArrayList<>();
@@ -55,11 +57,6 @@ public class TempDatabase {
 		return CARDSINDECK;
 	}
 
-	// TEST!!!!!!
-/*	public Deck getTestDeck() {
-		return new Deck();
-	}*/
-
 	public List<Deck> getAllDecks() {
 		return deckList;
 	}
@@ -69,6 +66,8 @@ public class TempDatabase {
 	}
 
 	// TODO add a try-catch here
+	// TODO move delete functionality to the service layer or somewhere more appropriate
+	// TODO incorporate actual error handling instead of simply returning "true".
 	public boolean deleteDeckById(int id) {
 		deckList.remove(id);
 		return true;

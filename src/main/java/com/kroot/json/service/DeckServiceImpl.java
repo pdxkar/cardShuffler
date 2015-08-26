@@ -15,11 +15,6 @@ public class DeckServiceImpl implements DeckService{
 	
 	public DeckServiceImpl() {}
 	
-//	@Override
-//	public Deck getTestDeck(){
-//		return tempDatabase.getTestDeck();
-//	}
-	
 	//TODO Make this exercise work without this initialization
 	//TESTING --- initialize TemporaryDatabase
 	@Override

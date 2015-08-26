@@ -3,7 +3,7 @@ package com.kroot.json.service;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.kroot.json.entity.Card;
 import com.kroot.json.utils.DeckDeserializer;
-
+//TODO Move class to com.kroot.json.entity
 @JsonDeserialize(using = DeckDeserializer.class)
 public class Deck {
 
