@@ -1,9 +1,10 @@
-package test.java.com.kroot.json.utils;
+package com.kroot.json.utils;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import com.kroot.json.entity.Card;
 import com.kroot.json.service.Deck;
 import com.kroot.json.utils.TempDatabase;
 
@@ -23,18 +24,44 @@ public class TempDatabaseTest {
 	 */
 	@Test
 	public void testShuffleDeckByIdHappyPath() {
+		
+		//trigger the temporary database initializer
+		//TODO fix it so you don't need that thing!
+		tester.initDatabase();
 
-		int testId = 2;
+		// create a fresh deck in the "database" to shuffle
+		Deck deckBeforeShuffling = new Deck();
+		
+		//have to add the deck to the "database" manually because the test isn't 
+		//going through the service's "create deck" method
+		tester.addDeckToDeckList(deckBeforeShuffling);
 
-		// TODO capture the state of the deck before it is shuffled.
+		int testDeckId = deckBeforeShuffling.getDeckId();
 
-		//TODO resolve nullpointer
-		//Deck result = tester.shuffleDeckById(testId);
+		// shuffle the deck
+		Deck shuffledDeck = tester.shuffleDeckById(testDeckId);		
 
-		// TODO capture the state of the deck after it is shuffled.
+		// create an ordered deck to compare to the shuffled deck
+		Deck orderedDeck = new Deck();
 
-		// TODO add appropriate assert to compare the two states to ascertain
-		// that the "cards" are in a different order.
+		int numberOfCardsInSameDeckPosition = 0;
+
+		// this testing algorithm is flawed because it makes the assumption that
+		// both decks
+		// contain the same number of cards. If they don't, the test could
+		// return false results.
+		//TODO fix test so "52" is smarter
+		for(int j = 0; j < 52; j++){
+			Card shuffledCard = shuffledDeck.getCards()[j];
+			Card orderedCard = orderedDeck.getCards()[j];
+			if (shuffledCard.getFace() == orderedCard.getFace()
+					&& shuffledCard.getSuit() == orderedCard.getSuit()) {
+				numberOfCardsInSameDeckPosition++;
+		}}
+
+		assertTrue(
+				"There are less than 10 cards in the 52 card decks that are in the same position in both decks.",
+				numberOfCardsInSameDeckPosition < 10);
 	}
 
 	/**

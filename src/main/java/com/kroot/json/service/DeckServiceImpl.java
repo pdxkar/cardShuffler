@@ -19,8 +19,9 @@ public class DeckServiceImpl implements DeckService{
 	//TESTING --- initialize TemporaryDatabase
 	@Override
 	public List<Deck> initDatabase(){
-		tempDatabase = new TempDatabase();
-		setTempDatabase(tempDatabase);
+		//tempDatabase = new TempDatabase();
+		//setTempDatabase(tempDatabase);
+		System.out.println("Hit initialization method ");
 		return tempDatabase.initDatabase();
 	}
 	
@@ -40,6 +41,9 @@ public class DeckServiceImpl implements DeckService{
 	@Override
 	public Deck createNewDeck(){
 		Deck deck = new Deck();
+		System.out.println("tempDatabase.getAllDecks().size() before add " + tempDatabase.getAllDecks().size());
+		tempDatabase.addDeckToDeckList(deck);
+		System.out.println("tempDatabase.getAllDecks().size() after add" + tempDatabase.getAllDecks().size());
 		return deck;		
 	}
 	

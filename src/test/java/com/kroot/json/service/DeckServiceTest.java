@@ -1,4 +1,4 @@
-package test.java.com.kroot.json.service;
+package com.kroot.json.service;
 
 import org.junit.Test;
 
@@ -40,7 +40,7 @@ public class DeckServiceTest {
 	@Test
 	public void testGetDeckByIdHappyPath() {
 
-		int testId = 2;
+		//int testId = 2;
 
 		//Deck result = tester.getDeckById(testId);
 
@@ -62,7 +62,7 @@ public class DeckServiceTest {
 	@Test
 	public void testCreateNewDeckHappyPath() {
 
-		Deck result = tester.createNewDeck();
+		//eck result = tester.createNewDeck();
 
 		// TODO Test that a deck is returned when the method is called.
 		// TODO Create sad path tests.
@@ -82,7 +82,7 @@ public class DeckServiceTest {
 	@Test
 	public void testShuffleDeckHappyPath() {
 
-		Deck result = tester.createNewDeck();
+		//Deck result = tester.createNewDeck();
 
 		// TODO Test that a differently ordered deck is returned when the method
 		// is called.

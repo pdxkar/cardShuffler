@@ -7,7 +7,8 @@ import com.kroot.json.utils.DeckDeserializer;
 @JsonDeserialize(using = DeckDeserializer.class)
 public class Deck {
 
-	private static int deckId = 0; 
+	private int deckId = 0; 
+	private static int counter = 0;
 
 	private Card[] cards; 
 	private int cardsInDeck; 
@@ -15,12 +16,12 @@ public class Deck {
 	public static final int DECK_SIZE = 52; 
 	
 	public Deck(int deckId, Card[] cards) {
-		Deck.deckId = deckId;
+		this.deckId = deckId;
 		this.cards = cards;
 	}
 
 	public Deck() {
-		deckId++;
+		deckId = counter;
 		cards = new Card[DECK_SIZE];
 		cardsInDeck = DECK_SIZE;
 		for (int i = 0; i < 13; i++) {
@@ -29,6 +30,7 @@ public class Deck {
 			cards[i + 26] = new Card(i + 1, Card.CLUBS);
 			cards[i + 39] = new Card(i + 1, Card.SPADES);
 		}
+		counter++;
 	}
 		
 	public int cardsInDeck() {
@@ -59,12 +61,20 @@ public class Deck {
 		this.cards = cards;
 	}
 
-	public static int getDeckId() {
+	public int getDeckId() {
 		return deckId;
 	}
 
-	public static void setDeckId(int deckId) {
-		Deck.deckId = deckId;
+	public void setDeckId(int deckId) {
+		this.deckId = deckId;
+	}
+
+	public static int getCounter() {
+		return counter;
+	}
+
+	public static void setCounter(int counter) {
+		Deck.counter = counter;
 	}
 
 } 

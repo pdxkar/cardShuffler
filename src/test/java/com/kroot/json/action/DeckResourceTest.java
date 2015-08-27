@@ -1,4 +1,4 @@
-package test.java.com.kroot.json.action;
+package com.kroot.json.action;
 
 import org.junit.Test;
 

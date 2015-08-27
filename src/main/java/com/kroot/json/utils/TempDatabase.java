@@ -15,7 +15,7 @@ import com.kroot.json.service.Deck;
 @Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
 public class TempDatabase {
 
-	private Deck deck;
+//	private Deck deck;
 
 	//TODO Make this exercise work without this initialization
 	// TESTING
@@ -50,19 +50,10 @@ public class TempDatabase {
 		deckList.add(deckThree);
 
 		return deckList;
-
 	}
 
 	public int cardsInDeck() {
 		return CARDSINDECK;
-	}
-
-	public List<Deck> getAllDecks() {
-		return deckList;
-	}
-
-	public Deck getDeckById(int id) {
-		return deckList.get(id);
 	}
 
 	// TODO add a try-catch here
@@ -73,13 +64,13 @@ public class TempDatabase {
 		return true;
 	}
 
-	// TODO Shuffling should probably be moved to the service layer or
+	// TODO Shuffling should be moved to the service layer or
 	// somewhere more appropriate!
 	// Temporarily using Beck Hasti's (U of WI) shuffling algorithm for testing purposes
 	public Deck shuffleDeckById(int id) {
 
 		Deck deckToBeShuffled = deckList.get(id);
-
+		
 		Card[] cardsToBeShuffled = deckToBeShuffled.getCards();
 
 		int newI;
@@ -107,12 +98,24 @@ public class TempDatabase {
 		return deckToBeShuffled;
 	}
 	
-	public Deck getDeck() {
+/*	public Deck getDeck() {
 		return deck;
 	}
 
 	public void setDeck(Deck deck) {
 		this.deck = deck;
+	}*/
+	
+	public List<Deck> getAllDecks() {
+		return deckList;
+	}
+	
+	public void addDeckToDeckList(Deck deckToAddToDeckList){
+		deckList.add(deckToAddToDeckList);
+	}
+
+	public Deck getDeckById(int id) {
+		return deckList.get(id);
 	}
 
 }
