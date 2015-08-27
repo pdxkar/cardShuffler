@@ -10,25 +10,25 @@ public class Deck {
 	private int deckId = 0; 
 	private static int counter = 0;
 
-	private Card[] cards; 
+	private String[] cardsString;
 	private int cardsInDeck; 
 
 	public static final int DECK_SIZE = 52; 
 	
 	public Deck(int deckId, Card[] cards) {
 		this.deckId = deckId;
-		this.cards = cards;
+		this.cardsString = cardsString;
 	}
 
 	public Deck() {
 		deckId = counter;
-		cards = new Card[DECK_SIZE];
+		cardsString = new String[DECK_SIZE];
 		cardsInDeck = DECK_SIZE;
 		for (int i = 0; i < 13; i++) {
-			cards[i] = new Card(i + 1, Card.HEARTS);
-			cards[i + 13] = new Card(i + 1, Card.DIAMONDS);
-			cards[i + 26] = new Card(i + 1, Card.CLUBS);
-			cards[i + 39] = new Card(i + 1, Card.SPADES);
+			cardsString[i] = new Card(i + 1, Card.HEARTS).toString();
+			cardsString[i + 13] = new Card(i + 1, Card.DIAMONDS).toString();
+			cardsString[i + 26] = new Card(i + 1, Card.CLUBS).toString();
+			cardsString[i + 39] = new Card(i + 1, Card.SPADES).toString();
 		}
 		counter++;
 	}
@@ -38,27 +38,26 @@ public class Deck {
 		}
 
 	//Return face and suit equivalent of each card
-	//TODO Make this work with the deserializers!
 	public String toString() {
 
 		if (cardsInDeck == 0)
 			return "<empty>";
 
-		String s = cards[0].toString() + ' ';
+		String s = cardsString[0] + ' ';
 		for (int i = 1; i < cardsInDeck; i++) {
 			if (i % 13 == 0)
 				s += '\n';
-			s += cards[i].toString() + ' ';
+			s += cardsString[i] + ' ';
 		}
 		return s;
 	}
-
-	public Card[] getCards() {
-		return cards;
+	
+	public String[] getCards() {
+		return cardsString;
 	}
 
-	public void setCards(Card[] cards) {
-		this.cards = cards;
+	public void setCards(String[] cards) {
+		this.cardsString = cardsString;
 	}
 
 	public int getDeckId() {

@@ -59,31 +59,36 @@ public class DeckResource {
 		Gson gson = new Gson();
 		
 		return gson.toJson(deck);
+
 	}
 	
 	//PUT - create a new deck in sorted order 
 	@PUT
 	@Produces({MediaType.APPLICATION_JSON})
-	public Deck createNewDeck(){
+	public String createNewDeck(){
 		Deck deck = deckService.createNewDeck(); //move to return statement
-		return deck;
+		Gson gson = new Gson();
+		
+		return gson.toJson(deck);
 	}
 	
 	//POST - shuffle an existing deck
 	@POST
 	@Path("/{param}")
 	@Produces({MediaType.APPLICATION_JSON})
-	public Deck shuffleDeckById(@PathParam("param")int id){
+	public String shuffleDeckById(@PathParam("param")int id){
 		Deck deck = deckService.shuffleDeckById(id);
 		
 		if(deck == null){
 			System.out.println("Deck with id:" + id + " is not found");
 			throw new NotFoundException("Deck with id:" + id + " is not found");
 		}
+		Gson gson = new Gson();
 		
-		return deck;
+		return gson.toJson(deck);
 	}
 	
+	//DELETE - delete an existing deck
 	@DELETE
 	@Produces({MediaType.APPLICATION_JSON})
 	@Path("/{param}")

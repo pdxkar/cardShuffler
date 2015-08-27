@@ -15,8 +15,6 @@ import com.kroot.json.service.Deck;
 @Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
 public class TempDatabase {
 
-//	private Deck deck;
-
 	//TODO Make this exercise work without this initialization
 	// TESTING
 	Deck deckZero;
@@ -70,11 +68,11 @@ public class TempDatabase {
 	public Deck shuffleDeckById(int id) {
 
 		Deck deckToBeShuffled = deckList.get(id);
-		
-		Card[] cardsToBeShuffled = deckToBeShuffled.getCards();
+
+		String[] cardsToBeShuffled = deckToBeShuffled.getCards();
 
 		int newI;
-		Card temp;
+		String temp;
 		Random randIndex = new Random();
 
 		for (int i = 0; i < CARDSINDECK; i++) {
@@ -97,14 +95,6 @@ public class TempDatabase {
 
 		return deckToBeShuffled;
 	}
-	
-/*	public Deck getDeck() {
-		return deck;
-	}
-
-	public void setDeck(Deck deck) {
-		this.deck = deck;
-	}*/
 	
 	public List<Deck> getAllDecks() {
 		return deckList;
